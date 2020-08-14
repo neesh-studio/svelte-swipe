@@ -10,6 +10,7 @@
   export let defaultIndex = 0;
 
   export let active_item = 0; //readonly
+  export let itemCount = 0; //readonly
   export let is_vertical = false;
 
   let activeIndicator = 0,
@@ -49,6 +50,7 @@
   let run_interval = false;
 
   $: indicators = Array(items);
+  $: itemCount = indicators.length;
 
   $: {
     if(autoplay && !run_interval){
