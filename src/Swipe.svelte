@@ -10,12 +10,11 @@
   export let defaultIndex = 0;
 
   export let activeItem = 0; //readonly
-  export let itemCount = 0; //readonly
+  export let items = 0; //readonly
   export let isVertical = false;
 
   let activeIndicator = 0,
     indicators,
-    items = 0,
     availableSpace = 0,
     topClearence = 0,
     elems,
