@@ -9,9 +9,9 @@
   export let delay = 1000;
   export let defaultIndex = 0;
 
-  export let active_item = 0; //readonly
+  export let activeItem = 0; //readonly
   export let itemCount = 0; //readonly
-  export let is_vertical = false;
+  export let isVertical = false;
 
   let activeIndicator = 0,
     indicators,
