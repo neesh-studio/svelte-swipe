@@ -283,3 +283,4 @@
    {/if}
 
 </div>
+<svelte:options accessors/>
