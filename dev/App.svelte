@@ -9,6 +9,7 @@
 
   let active_item = 0; //readonly
 
+  let resize = false;
 
   let customThumbnail = false;
 
@@ -78,6 +79,9 @@
   .has-pointer-event{
     pointer-events:fill;
   }
+  .resize {
+    width: 50%;
+  }
 </style>
 
 <div class="container" >
@@ -104,6 +108,25 @@
     </div>
     </div>
   </div>
+
+  <div class="row" class:resize>
+    <div class="col">
+      <div class="swipe-holder">
+        <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>
+          {#each images as image}
+            <SwipeItem>
+              <img class="img-fluid" src={image} alt="">
+            </SwipeItem>
+          {/each}
+        </Swipe>
+      </div>
+    </div>
+  </div>
+  <label>
+Change container size without triggering window:resize. 
+    <input type="checkbox" bind:checked={resize}>
+  </label>
+
   <div class="row">
     <div class="col">
       <div class="swipe-holder">

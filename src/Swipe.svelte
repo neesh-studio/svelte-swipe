@@ -43,6 +43,14 @@
     dir = 0,
     axis;
 
+  const resizeObserver = new ResizeObserver((elements) => {
+      for (let element of elements) {
+        if(element.contentBoxSize) {
+          update()
+        }
+      }
+    }
+  )
 
 
   let played = defaultIndex || 0;
@@ -89,6 +97,7 @@
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', update);
     }
+    resizeObserver.observe(swipeWrapper);
   });
 
 
@@ -97,6 +106,7 @@
     if (typeof window !== 'undefined') {
       window.removeEventListener('resize', update);
     }
+    resizeObserver.unobserve(swipeWrapper);
   })
 
   function moveHandler(e){
