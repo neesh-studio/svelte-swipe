@@ -41,19 +41,12 @@
     dir = 0,
     axis;
 
-  const resizeTimeout = null;
-
-  const resizeObserver = new ResizeObserver((elements) => {
-    for (let element of elements) {
-      if (element.contentBoxSize) {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => update(), 150);
-      }
-    }
-  });
+  let resizeTimeout = null;
 
   let played = defaultIndex || 0;
   let run_interval = false;
+
+  let resizeObserver;
 
   $: indicators = Array(items);
   $: itemCount = indicators.length;
@@ -101,15 +94,25 @@
     if (typeof window !== "undefined") {
       window.addEventListener("resize", update);
     }
+    resizeObserver = new ResizeObserver((elements) => {
+      for (let element of elements) {
+        if (element.contentBoxSize) {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => update(), 150);
+        }
+      }
+    });
     resizeObserver.observe(swipeWrapper);
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", update);
+      }
+      resizeObserver.unobserve(swipeWrapper);
+    };
   });
 
-  onDestroy(() => {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", update);
-    }
-    resizeObserver.unobserve(swipeWrapper);
-  });
+  onDestroy(() => {});
 
   function moveHandler(e) {
     if (touching) {
