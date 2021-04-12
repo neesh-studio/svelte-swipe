@@ -96,7 +96,7 @@
     }
     resizeObserver = new ResizeObserver((elements) => {
       for (let element of elements) {
-        if (element.contentBoxSize) {
+        if (element.contentBoxSize || element.contentRect) {
           clearTimeout(resizeTimeout);
           resizeTimeout = setTimeout(() => update(), 150);
         }
