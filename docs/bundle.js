@@ -103,6 +103,9 @@ var app = (function () {
     function set_style(node, key, value, important) {
         node.style.setProperty(key, value, important ? 'important' : '');
     }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, false, false, detail);
@@ -429,12 +432,12 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[42] = list[i];
-    	child_ctx[44] = i;
+    	child_ctx[45] = list[i];
+    	child_ctx[47] = i;
     	return child_ctx;
     }
 
-    // (275:3) {#if showIndicators}
+    // (240:2) {#if showIndicators}
     function create_if_block(ctx) {
     	let div;
     	let each_value = /*indicators*/ ctx[2];
@@ -453,8 +456,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "swipe-indicator swipe-indicator-inside svelte-hja3vj");
-    			add_location(div, file, 275, 5, 6572);
+    			attr_dev(div, "class", "swipe-indicator swipe-indicator-inside svelte-1ovb91b");
+    			add_location(div, file, 240, 4, 6253);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -498,32 +501,32 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(275:3) {#if showIndicators}",
+    		source: "(240:2) {#if showIndicators}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (277:8) {#each indicators as x, i }
+    // (242:6) {#each indicators as x, i}
     function create_each_block(ctx) {
     	let span;
     	let span_class_value;
     	let dispose;
 
     	function click_handler(...args) {
-    		return /*click_handler*/ ctx[41](/*i*/ ctx[44], ...args);
+    		return /*click_handler*/ ctx[44](/*i*/ ctx[47], ...args);
     	}
 
     	const block = {
     		c: function create() {
     			span = element("span");
 
-    			attr_dev(span, "class", span_class_value = "dot " + (/*activeIndicator*/ ctx[1] == /*i*/ ctx[44]
+    			attr_dev(span, "class", span_class_value = "dot " + (/*activeIndicator*/ ctx[1] == /*i*/ ctx[47]
     			? "is-active"
-    			: "") + " svelte-hja3vj");
+    			: "") + " svelte-1ovb91b");
 
-    			add_location(span, file, 277, 10, 6671);
+    			add_location(span, file, 242, 8, 6347);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, span, anchor);
@@ -533,9 +536,9 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*activeIndicator*/ 2 && span_class_value !== (span_class_value = "dot " + (/*activeIndicator*/ ctx[1] == /*i*/ ctx[44]
+    			if (dirty[0] & /*activeIndicator*/ 2 && span_class_value !== (span_class_value = "dot " + (/*activeIndicator*/ ctx[1] == /*i*/ ctx[47]
     			? "is-active"
-    			: "") + " svelte-hja3vj")) {
+    			: "") + " svelte-1ovb91b")) {
     				attr_dev(span, "class", span_class_value);
     			}
     		},
@@ -549,7 +552,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(277:8) {#each indicators as x, i }",
+    		source: "(242:6) {#each indicators as x, i}",
     		ctx
     	});
 
@@ -566,8 +569,8 @@ var app = (function () {
     	let t1;
     	let current;
     	let dispose;
-    	const default_slot_template = /*$$slots*/ ctx[38].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[37], null);
+    	const default_slot_template = /*$$slots*/ ctx[41].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[40], null);
     	let if_block = /*showIndicators*/ ctx[0] && create_if_block(ctx);
 
     	const block = {
@@ -581,16 +584,16 @@ var app = (function () {
     			div3 = element("div");
     			t1 = space();
     			if (if_block) if_block.c();
-    			attr_dev(div0, "class", "swipeable-slot-wrapper svelte-hja3vj");
-    			add_location(div0, file, 268, 6, 6344);
-    			attr_dev(div1, "class", "swipeable-items svelte-hja3vj");
-    			add_location(div1, file, 267, 4, 6308);
-    			attr_dev(div2, "class", "swipe-item-wrapper svelte-hja3vj");
-    			add_location(div2, file, 266, 2, 6246);
-    			attr_dev(div3, "class", "swipe-handler svelte-hja3vj");
-    			add_location(div3, file, 273, 2, 6433);
-    			attr_dev(div4, "class", "swipe-panel svelte-hja3vj");
-    			add_location(div4, file, 265, 0, 6218);
+    			attr_dev(div0, "class", "swipeable-slot-wrapper svelte-1ovb91b");
+    			add_location(div0, file, 228, 6, 6013);
+    			attr_dev(div1, "class", "swipeable-items svelte-1ovb91b");
+    			add_location(div1, file, 227, 4, 5977);
+    			attr_dev(div2, "class", "swipe-item-wrapper svelte-1ovb91b");
+    			add_location(div2, file, 226, 2, 5915);
+    			attr_dev(div3, "class", "swipe-handler svelte-1ovb91b");
+    			add_location(div3, file, 233, 2, 6102);
+    			attr_dev(div4, "class", "swipe-panel svelte-1ovb91b");
+    			add_location(div4, file, 225, 0, 5887);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -605,10 +608,10 @@ var app = (function () {
     				default_slot.m(div0, null);
     			}
 
-    			/*div2_binding*/ ctx[39](div2);
+    			/*div2_binding*/ ctx[42](div2);
     			append_dev(div4, t0);
     			append_dev(div4, div3);
-    			/*div3_binding*/ ctx[40](div3);
+    			/*div3_binding*/ ctx[43](div3);
     			append_dev(div4, t1);
     			if (if_block) if_block.m(div4, null);
     			current = true;
@@ -621,8 +624,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (default_slot) {
-    				if (default_slot.p && dirty[1] & /*$$scope*/ 64) {
-    					default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[37], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[37], dirty, null));
+    				if (default_slot.p && dirty[1] & /*$$scope*/ 512) {
+    					default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[40], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[40], dirty, null));
     				}
     			}
 
@@ -651,8 +654,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
     			if (default_slot) default_slot.d(detaching);
-    			/*div2_binding*/ ctx[39](null);
-    			/*div3_binding*/ ctx[40](null);
+    			/*div2_binding*/ ctx[42](null);
+    			/*div3_binding*/ ctx[43](null);
     			if (if_block) if_block.d();
     			run_all(dispose);
     		}
@@ -675,12 +678,12 @@ var app = (function () {
     	let { autoplay = false } = $$props;
     	let { delay = 1000 } = $$props;
     	let { defaultIndex = 0 } = $$props;
-    	let { active_item = 0 } = $$props; //readonly
-    	let { is_vertical = false } = $$props;
+    	let { activeItem = 0 } = $$props; //readonly
+    	let { items = 0 } = $$props; //readonly
+    	let { isVertical = false } = $$props;
 
     	let activeIndicator = 0,
     		indicators,
-    		items = 0,
     		availableSpace = 0,
     		topClearence = 0,
     		elems,
@@ -688,7 +691,7 @@ var app = (function () {
     		swipeWrapper,
     		swipeHandler,
     		min = 0,
-    		transformString = is_vertical
+    		transformString = isVertical
     		? "translate3d(0, -{{val}}px, 0)"
     		: "translate3d(-{{val}}px, 0, 0)",
     		touchingTpl = `
@@ -703,22 +706,24 @@ var app = (function () {
     -ms-transform: ${transformString};`,
     		touching = false,
     		pos_axis = 0,
-    		page_axis = is_vertical ? "pageY" : "pageX",
+    		page_axis = isVertical ? "pageY" : "pageX",
     		dir = 0,
     		axis;
 
+    	let resizeTimeout = null;
     	let played = defaultIndex || 0;
     	let run_interval = false;
+    	let resizeObserver;
 
-    	function update() {
+    	function update(resetIndex = false) {
     		$$invalidate(4, swipeHandler.style.top = topClearence + "px", swipeHandler);
     		let { offsetWidth, offsetHeight } = swipeWrapper.querySelector(".swipeable-items");
-    		availableSpace = is_vertical ? offsetHeight : offsetWidth;
+    		availableSpace = isVertical ? offsetHeight : offsetWidth;
 
     		for (let i = 0; i < items; i++) {
     			let _transformValue = availableSpace * i + "px";
 
-    			let _transformString = is_vertical
+    			let _transformString = isVertical
     			? `translate3d(0, ${_transformValue}, 0)`
     			: `translate3d(${_transformValue}, 0, 0)`;
 
@@ -727,15 +732,17 @@ var app = (function () {
 
     		diff = 0;
 
-    		if (defaultIndex) {
+    		if (resetIndex && defaultIndex) {
     			changeItem(defaultIndex);
+    		} else if (activeItem) {
+    			changeItem(activeItem);
     		}
     	}
 
     	function init() {
     		elems = swipeWrapper.querySelectorAll(".swipeable-item");
-    		$$invalidate(16, items = elems.length);
-    		update();
+    		$$invalidate(8, items = elems.length);
+    		update(true);
     	}
 
     	onMount(() => {
@@ -744,12 +751,29 @@ var app = (function () {
     		if (typeof window !== "undefined") {
     			window.addEventListener("resize", update);
     		}
+
+    		resizeObserver = new ResizeObserver(elements => {
+    				for (let element of elements) {
+    					if (element.contentBoxSize || element.contentRect) {
+    						clearTimeout(resizeTimeout);
+    						resizeTimeout = setTimeout(() => update(), 150);
+    					}
+    				}
+    			});
+
+    		resizeObserver.observe(swipeWrapper);
+
+    		return () => {
+    			if (typeof window !== "undefined") {
+    				window.removeEventListener("resize", update);
+    			}
+
+    			resizeObserver.unobserve(swipeWrapper);
+    		};
     	});
 
     	onDestroy(() => {
-    		if (typeof window !== "undefined") {
-    			window.removeEventListener("resize", update);
-    		}
+    		
     	});
 
     	function moveHandler(e) {
@@ -803,7 +827,7 @@ var app = (function () {
     			elems[i].style.cssText = non_touchingTpl.replace(template, _value).replace(template, _value);
     		}
 
-    		$$invalidate(7, active_item = activeIndicator);
+    		$$invalidate(7, activeItem = activeIndicator);
 
     		if (typeof window !== "undefined") {
     			window.removeEventListener("mousemove", moveHandler);
@@ -861,8 +885,9 @@ var app = (function () {
     		"autoplay",
     		"delay",
     		"defaultIndex",
-    		"active_item",
-    		"is_vertical"
+    		"activeItem",
+    		"items",
+    		"isVertical"
     	];
 
     	Object.keys($$props).forEach(key => {
@@ -889,14 +914,15 @@ var app = (function () {
     	};
 
     	$$self.$set = $$props => {
-    		if ("transitionDuration" in $$props) $$invalidate(8, transitionDuration = $$props.transitionDuration);
+    		if ("transitionDuration" in $$props) $$invalidate(9, transitionDuration = $$props.transitionDuration);
     		if ("showIndicators" in $$props) $$invalidate(0, showIndicators = $$props.showIndicators);
-    		if ("autoplay" in $$props) $$invalidate(9, autoplay = $$props.autoplay);
-    		if ("delay" in $$props) $$invalidate(10, delay = $$props.delay);
-    		if ("defaultIndex" in $$props) $$invalidate(11, defaultIndex = $$props.defaultIndex);
-    		if ("active_item" in $$props) $$invalidate(7, active_item = $$props.active_item);
-    		if ("is_vertical" in $$props) $$invalidate(12, is_vertical = $$props.is_vertical);
-    		if ("$$scope" in $$props) $$invalidate(37, $$scope = $$props.$$scope);
+    		if ("autoplay" in $$props) $$invalidate(10, autoplay = $$props.autoplay);
+    		if ("delay" in $$props) $$invalidate(11, delay = $$props.delay);
+    		if ("defaultIndex" in $$props) $$invalidate(12, defaultIndex = $$props.defaultIndex);
+    		if ("activeItem" in $$props) $$invalidate(7, activeItem = $$props.activeItem);
+    		if ("items" in $$props) $$invalidate(8, items = $$props.items);
+    		if ("isVertical" in $$props) $$invalidate(13, isVertical = $$props.isVertical);
+    		if ("$$scope" in $$props) $$invalidate(40, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -907,11 +933,11 @@ var app = (function () {
     		autoplay,
     		delay,
     		defaultIndex,
-    		active_item,
-    		is_vertical,
+    		activeItem,
+    		items,
+    		isVertical,
     		activeIndicator,
     		indicators,
-    		items,
     		availableSpace,
     		topClearence,
     		elems,
@@ -927,8 +953,10 @@ var app = (function () {
     		page_axis,
     		dir,
     		axis,
+    		resizeTimeout,
     		played,
     		run_interval,
+    		resizeObserver,
     		update,
     		init,
     		moveHandler,
@@ -938,20 +966,21 @@ var app = (function () {
     		changeView,
     		goTo,
     		prevItem,
-    		nextItem
+    		nextItem,
+    		itemCount
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("transitionDuration" in $$props) $$invalidate(8, transitionDuration = $$props.transitionDuration);
+    		if ("transitionDuration" in $$props) $$invalidate(9, transitionDuration = $$props.transitionDuration);
     		if ("showIndicators" in $$props) $$invalidate(0, showIndicators = $$props.showIndicators);
-    		if ("autoplay" in $$props) $$invalidate(9, autoplay = $$props.autoplay);
-    		if ("delay" in $$props) $$invalidate(10, delay = $$props.delay);
-    		if ("defaultIndex" in $$props) $$invalidate(11, defaultIndex = $$props.defaultIndex);
-    		if ("active_item" in $$props) $$invalidate(7, active_item = $$props.active_item);
-    		if ("is_vertical" in $$props) $$invalidate(12, is_vertical = $$props.is_vertical);
+    		if ("autoplay" in $$props) $$invalidate(10, autoplay = $$props.autoplay);
+    		if ("delay" in $$props) $$invalidate(11, delay = $$props.delay);
+    		if ("defaultIndex" in $$props) $$invalidate(12, defaultIndex = $$props.defaultIndex);
+    		if ("activeItem" in $$props) $$invalidate(7, activeItem = $$props.activeItem);
+    		if ("items" in $$props) $$invalidate(8, items = $$props.items);
+    		if ("isVertical" in $$props) $$invalidate(13, isVertical = $$props.isVertical);
     		if ("activeIndicator" in $$props) $$invalidate(1, activeIndicator = $$props.activeIndicator);
     		if ("indicators" in $$props) $$invalidate(2, indicators = $$props.indicators);
-    		if ("items" in $$props) $$invalidate(16, items = $$props.items);
     		if ("availableSpace" in $$props) availableSpace = $$props.availableSpace;
     		if ("topClearence" in $$props) topClearence = $$props.topClearence;
     		if ("elems" in $$props) elems = $$props.elems;
@@ -967,28 +996,37 @@ var app = (function () {
     		if ("page_axis" in $$props) page_axis = $$props.page_axis;
     		if ("dir" in $$props) dir = $$props.dir;
     		if ("axis" in $$props) axis = $$props.axis;
+    		if ("resizeTimeout" in $$props) resizeTimeout = $$props.resizeTimeout;
     		if ("played" in $$props) played = $$props.played;
-    		if ("run_interval" in $$props) $$invalidate(24, run_interval = $$props.run_interval);
+    		if ("run_interval" in $$props) $$invalidate(25, run_interval = $$props.run_interval);
+    		if ("resizeObserver" in $$props) resizeObserver = $$props.resizeObserver;
+    		if ("itemCount" in $$props) itemCount = $$props.itemCount;
     	};
+
+    	let itemCount;
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*items*/ 65536) {
+    		if ($$self.$$.dirty[0] & /*items*/ 256) {
     			 $$invalidate(2, indicators = Array(items));
     		}
 
-    		if ($$self.$$.dirty[0] & /*autoplay, run_interval, delay*/ 16778752) {
+    		if ($$self.$$.dirty[0] & /*indicators*/ 4) {
+    			 itemCount = indicators.length;
+    		}
+
+    		if ($$self.$$.dirty[0] & /*autoplay, run_interval, delay*/ 33557504) {
     			 {
     				if (autoplay && !run_interval) {
-    					$$invalidate(24, run_interval = setInterval(changeView, delay));
+    					$$invalidate(25, run_interval = setInterval(changeView, delay));
     				}
 
     				if (!autoplay && run_interval) {
     					clearInterval(run_interval);
-    					$$invalidate(24, run_interval = false);
+    					$$invalidate(25, run_interval = false);
     				}
     			}
     		}
@@ -1002,24 +1040,27 @@ var app = (function () {
     		swipeHandler,
     		moveStart,
     		changeItem,
-    		active_item,
+    		activeItem,
+    		items,
     		transitionDuration,
     		autoplay,
     		delay,
     		defaultIndex,
-    		is_vertical,
+    		isVertical,
     		goTo,
     		prevItem,
     		nextItem,
-    		items,
     		availableSpace,
     		elems,
     		diff,
     		touching,
     		pos_axis,
     		axis,
+    		resizeTimeout,
     		played,
     		run_interval,
+    		resizeObserver,
+    		itemCount,
     		topClearence,
     		min,
     		transformString,
@@ -1051,16 +1092,17 @@ var app = (function () {
     			create_fragment,
     			safe_not_equal,
     			{
-    				transitionDuration: 8,
+    				transitionDuration: 9,
     				showIndicators: 0,
-    				autoplay: 9,
-    				delay: 10,
-    				defaultIndex: 11,
-    				active_item: 7,
-    				is_vertical: 12,
-    				goTo: 13,
-    				prevItem: 14,
-    				nextItem: 15
+    				autoplay: 10,
+    				delay: 11,
+    				defaultIndex: 12,
+    				activeItem: 7,
+    				items: 8,
+    				isVertical: 13,
+    				goTo: 14,
+    				prevItem: 15,
+    				nextItem: 16
     			},
     			[-1, -1]
     		);
@@ -1074,83 +1116,99 @@ var app = (function () {
     	}
 
     	get transitionDuration() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[9];
     	}
 
-    	set transitionDuration(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set transitionDuration(transitionDuration) {
+    		this.$set({ transitionDuration });
+    		flush();
     	}
 
     	get showIndicators() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[0];
     	}
 
-    	set showIndicators(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set showIndicators(showIndicators) {
+    		this.$set({ showIndicators });
+    		flush();
     	}
 
     	get autoplay() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[10];
     	}
 
-    	set autoplay(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set autoplay(autoplay) {
+    		this.$set({ autoplay });
+    		flush();
     	}
 
     	get delay() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[11];
     	}
 
-    	set delay(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set delay(delay) {
+    		this.$set({ delay });
+    		flush();
     	}
 
     	get defaultIndex() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		return this.$$.ctx[12];
     	}
 
-    	set defaultIndex(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set defaultIndex(defaultIndex) {
+    		this.$set({ defaultIndex });
+    		flush();
     	}
 
-    	get active_item() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	get activeItem() {
+    		return this.$$.ctx[7];
     	}
 
-    	set active_item(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set activeItem(activeItem) {
+    		this.$set({ activeItem });
+    		flush();
     	}
 
-    	get is_vertical() {
-    		throw new Error("<Swipe>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	get items() {
+    		return this.$$.ctx[8];
     	}
 
-    	set is_vertical(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set items(items) {
+    		this.$set({ items });
+    		flush();
     	}
 
-    	get goTo() {
+    	get isVertical() {
     		return this.$$.ctx[13];
     	}
 
-    	set goTo(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set isVertical(isVertical) {
+    		this.$set({ isVertical });
+    		flush();
     	}
 
-    	get prevItem() {
+    	get goTo() {
     		return this.$$.ctx[14];
     	}
 
-    	set prevItem(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	set goTo(value) {
+    		throw new Error("<Swipe>: Cannot set read-only property 'goTo'");
     	}
 
-    	get nextItem() {
+    	get prevItem() {
     		return this.$$.ctx[15];
     	}
 
+    	set prevItem(value) {
+    		throw new Error("<Swipe>: Cannot set read-only property 'prevItem'");
+    	}
+
+    	get nextItem() {
+    		return this.$$.ctx[16];
+    	}
+
     	set nextItem(value) {
-    		throw new Error("<Swipe>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<Swipe>: Cannot set read-only property 'nextItem'");
     	}
     }
 
@@ -1277,24 +1335,217 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[22] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
-    	child_ctx[22] = i;
+    	child_ctx[22] = list[i];
+    	child_ctx[26] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[22] = list[i];
     	return child_ctx;
     }
 
-    // (112:12) <SwipeItem>
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[22] = list[i];
+    	return child_ctx;
+    }
+
+    // (117:12) <SwipeItem>
+    function create_default_slot_10(ctx) {
+    	let img;
+    	let img_src_value;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			t = space();
+    			attr_dev(img, "class", "img-fluid svelte-1k65fh9");
+    			if (img.src !== (img_src_value = /*image*/ ctx[22])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "");
+    			add_location(img, file$2, 117, 14, 2347);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_10.name,
+    		type: "slot",
+    		source: "(117:12) <SwipeItem>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (116:10) {#each images as image}
+    function create_each_block_3(ctx) {
+    	let current;
+
+    	const swipeitem = new SwipeItem({
+    			props: {
+    				$$slots: { default: [create_default_slot_10] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(swipeitem.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(swipeitem, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const swipeitem_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 1) {
+    				swipeitem_changes.$$scope = { dirty, ctx };
+    			}
+
+    			swipeitem.$set(swipeitem_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(swipeitem.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(swipeitem.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(swipeitem, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3.name,
+    		type: "each",
+    		source: "(116:10) {#each images as image}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (115:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>
+    function create_default_slot_9(ctx) {
+    	let each_1_anchor;
+    	let current;
+    	let each_value_3 = /*images*/ ctx[13];
+    	validate_each_argument(each_value_3);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*images*/ 8192) {
+    				each_value_3 = /*images*/ ctx[13];
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block_3(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value_3.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value_3.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_9.name,
+    		type: "slot",
+    		source: "(115:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (135:12) <SwipeItem>
     function create_default_slot_8(ctx) {
     	let img;
     	let img_src_value;
@@ -1304,10 +1555,10 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			t = space();
-    			attr_dev(img, "class", "img-fluid svelte-vzf4ra");
-    			if (img.src !== (img_src_value = /*image*/ ctx[18])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "class", "img-fluid svelte-1k65fh9");
+    			if (img.src !== (img_src_value = /*image*/ ctx[22])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$2, 112, 14, 2279);
+    			add_location(img, file$2, 135, 14, 2886);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1324,14 +1575,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(112:12) <SwipeItem>",
+    		source: "(135:12) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (111:10) {#each images as image}
+    // (134:10) {#each images as image}
     function create_each_block_2(ctx) {
     	let current;
 
@@ -1354,7 +1605,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const swipeitem_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1378,18 +1629,18 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(111:10) {#each images as image}",
+    		source: "(134:10) {#each images as image}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>
+    // (133:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>
     function create_default_slot_7(ctx) {
     	let each_1_anchor;
     	let current;
-    	let each_value_2 = /*images*/ ctx[12];
+    	let each_value_2 = /*images*/ ctx[13];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -1418,8 +1669,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*images*/ 4096) {
-    				each_value_2 = /*images*/ ctx[12];
+    			if (dirty[0] & /*images*/ 8192) {
+    				each_value_2 = /*images*/ ctx[13];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -1474,18 +1725,18 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(110:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>",
+    		source: "(133:8) <Swipe {showIndicators} {autoplay} {delay} {transitionDuration} {defaultIndex} bind:active_item bind:this={SwipeComp}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (124:4) {#if customThumbnail}
+    // (147:4) {#if customThumbnail}
     function create_if_block$1(ctx) {
     	let div1;
     	let div0;
-    	let each_value_1 = /*images*/ ctx[12];
+    	let each_value_1 = /*images*/ ctx[13];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -1502,10 +1753,10 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div0, "class", "is-center svelte-vzf4ra");
-    			add_location(div0, file$2, 125, 8, 2658);
-    			attr_dev(div1, "class", "col svelte-vzf4ra");
-    			add_location(div1, file$2, 124, 6, 2632);
+    			attr_dev(div0, "class", "is-center svelte-1k65fh9");
+    			add_location(div0, file$2, 148, 8, 3265);
+    			attr_dev(div1, "class", "col svelte-1k65fh9");
+    			add_location(div1, file$2, 147, 6, 3239);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -1516,8 +1767,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*active_item, images, changeSlide*/ 6148) {
-    				each_value_1 = /*images*/ ctx[12];
+    			if (dirty[0] & /*active_item, images, changeSlide*/ 12292) {
+    				each_value_1 = /*images*/ ctx[13];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -1550,14 +1801,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(124:4) {#if customThumbnail}",
+    		source: "(147:4) {#if customThumbnail}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (127:10) {#each images as image, i}
+    // (150:10) {#each images as image, i}
     function create_each_block_1(ctx) {
     	let img;
     	let img_class_value;
@@ -1565,23 +1816,23 @@ var app = (function () {
     	let dispose;
 
     	function click_handler(...args) {
-    		return /*click_handler*/ ctx[17](/*i*/ ctx[22], ...args);
+    		return /*click_handler*/ ctx[21](/*i*/ ctx[26], ...args);
     	}
 
     	const block = {
     		c: function create() {
     			img = element("img");
 
-    			attr_dev(img, "class", img_class_value = "img-fluid " + (/*active_item*/ ctx[2] == /*i*/ ctx[22]
+    			attr_dev(img, "class", img_class_value = "img-fluid " + (/*active_item*/ ctx[2] == /*i*/ ctx[26]
     			? "rounded"
-    			: "img-thumbnail") + " svelte-vzf4ra");
+    			: "img-thumbnail") + " svelte-1k65fh9");
 
     			set_style(img, "height", "30px");
     			set_style(img, "width", "30px");
     			set_style(img, "cursor", "pointer");
-    			if (img.src !== (img_src_value = /*image*/ ctx[18])) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = /*image*/ ctx[22])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$2, 127, 12, 2731);
+    			add_location(img, file$2, 150, 12, 3338);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, img, anchor);
@@ -1591,9 +1842,9 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty & /*active_item*/ 4 && img_class_value !== (img_class_value = "img-fluid " + (/*active_item*/ ctx[2] == /*i*/ ctx[22]
+    			if (dirty[0] & /*active_item*/ 4 && img_class_value !== (img_class_value = "img-fluid " + (/*active_item*/ ctx[2] == /*i*/ ctx[26]
     			? "rounded"
-    			: "img-thumbnail") + " svelte-vzf4ra")) {
+    			: "img-thumbnail") + " svelte-1k65fh9")) {
     				attr_dev(img, "class", img_class_value);
     			}
     		},
@@ -1607,14 +1858,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(127:10) {#each images as image, i}",
+    		source: "(150:10) {#each images as image, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:12) <SwipeItem>
+    // (171:12) <SwipeItem>
     function create_default_slot_6(ctx) {
     	let img;
     	let img_src_value;
@@ -1624,10 +1875,10 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			t = space();
-    			attr_dev(img, "class", "img-fluid svelte-vzf4ra");
-    			if (img.src !== (img_src_value = /*image*/ ctx[18])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "class", "img-fluid svelte-1k65fh9");
+    			if (img.src !== (img_src_value = /*image*/ ctx[22])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$2, 148, 14, 3491);
+    			add_location(img, file$2, 171, 14, 4098);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1644,14 +1895,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(148:12) <SwipeItem>",
+    		source: "(171:12) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (147:10) {#each images as image}
+    // (170:10) {#each images as image}
     function create_each_block$1(ctx) {
     	let current;
 
@@ -1674,7 +1925,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const swipeitem_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1698,18 +1949,18 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(147:10) {#each images as image}",
+    		source: "(170:10) {#each images as image}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:8) <Swipe is_vertical={true} >
+    // (169:8) <Swipe is_vertical={true} >
     function create_default_slot_5(ctx) {
     	let each_1_anchor;
     	let current;
-    	let each_value = /*images*/ ctx[12];
+    	let each_value = /*images*/ ctx[13];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -1738,8 +1989,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*images*/ 4096) {
-    				each_value = /*images*/ ctx[12];
+    			if (dirty[0] & /*images*/ 8192) {
+    				each_value = /*images*/ ctx[13];
     				validate_each_argument(each_value);
     				let i;
 
@@ -1794,14 +2045,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(146:8) <Swipe is_vertical={true} >",
+    		source: "(169:8) <Swipe is_vertical={true} >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (161:6) <SwipeItem>
+    // (184:6) <SwipeItem>
     function create_default_slot_4(ctx) {
     	let div;
     	let button;
@@ -1812,11 +2063,11 @@ var app = (function () {
     			div = element("div");
     			button = element("button");
     			button.textContent = "Say Hi";
-    			attr_dev(button, "class", "custom-button has-pointer-event svelte-vzf4ra");
-    			add_location(button, file$2, 162, 10, 3841);
-    			attr_dev(div, "class", "is-stack is-center svelte-vzf4ra");
+    			attr_dev(button, "class", "custom-button has-pointer-event svelte-1k65fh9");
+    			add_location(button, file$2, 185, 10, 4448);
+    			attr_dev(div, "class", "is-stack is-center svelte-1k65fh9");
     			set_style(div, "background", "teal");
-    			add_location(div, file$2, 161, 8, 3774);
+    			add_location(div, file$2, 184, 8, 4381);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -1835,14 +2086,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(161:6) <SwipeItem>",
+    		source: "(184:6) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (167:6) <SwipeItem>
+    // (190:6) <SwipeItem>
     function create_default_slot_3(ctx) {
     	let div;
     	let button;
@@ -1853,11 +2104,11 @@ var app = (function () {
     			div = element("div");
     			button = element("button");
     			button.textContent = "Say Hi";
-    			attr_dev(button, "class", "custom-button has-pointer-event svelte-vzf4ra");
-    			add_location(button, file$2, 168, 10, 4057);
-    			attr_dev(div, "class", "is-stack is-center svelte-vzf4ra");
+    			attr_dev(button, "class", "custom-button has-pointer-event svelte-1k65fh9");
+    			add_location(button, file$2, 191, 10, 4664);
+    			attr_dev(div, "class", "is-stack is-center svelte-1k65fh9");
     			set_style(div, "background", "yellowgreen");
-    			add_location(div, file$2, 167, 8, 3983);
+    			add_location(div, file$2, 190, 8, 4590);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -1876,14 +2127,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(167:6) <SwipeItem>",
+    		source: "(190:6) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (173:6) <SwipeItem>
+    // (196:6) <SwipeItem>
     function create_default_slot_2(ctx) {
     	let div;
     	let button;
@@ -1894,11 +2145,11 @@ var app = (function () {
     			div = element("div");
     			button = element("button");
     			button.textContent = "Say Hi";
-    			attr_dev(button, "class", "custom-button has-pointer-event svelte-vzf4ra");
-    			add_location(button, file$2, 174, 10, 4266);
-    			attr_dev(div, "class", "is-stack is-center svelte-vzf4ra");
+    			attr_dev(button, "class", "custom-button has-pointer-event svelte-1k65fh9");
+    			add_location(button, file$2, 197, 10, 4873);
+    			attr_dev(div, "class", "is-stack is-center svelte-1k65fh9");
     			set_style(div, "background", "aqua");
-    			add_location(div, file$2, 173, 8, 4199);
+    			add_location(div, file$2, 196, 8, 4806);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -1917,14 +2168,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(173:6) <SwipeItem>",
+    		source: "(196:6) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (179:6) <SwipeItem>
+    // (202:6) <SwipeItem>
     function create_default_slot_1(ctx) {
     	let div;
     	let button;
@@ -1935,11 +2186,11 @@ var app = (function () {
     			div = element("div");
     			button = element("button");
     			button.textContent = "Say Hi";
-    			attr_dev(button, "class", "custom-button has-pointer-event svelte-vzf4ra");
-    			add_location(button, file$2, 180, 10, 4481);
-    			attr_dev(div, "class", "is-stack is-center svelte-vzf4ra");
+    			attr_dev(button, "class", "custom-button has-pointer-event svelte-1k65fh9");
+    			add_location(button, file$2, 203, 10, 5088);
+    			attr_dev(div, "class", "is-stack is-center svelte-1k65fh9");
     			set_style(div, "background", "lightcoral");
-    			add_location(div, file$2, 179, 8, 4408);
+    			add_location(div, file$2, 202, 8, 5015);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -1958,14 +2209,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(179:6) <SwipeItem>",
+    		source: "(202:6) <SwipeItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (160:4) <Swipe>
+    // (183:4) <Swipe>
     function create_default_slot(ctx) {
     	let t0;
     	let t1;
@@ -2027,28 +2278,28 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const swipeitem0_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem0_changes.$$scope = { dirty, ctx };
     			}
 
     			swipeitem0.$set(swipeitem0_changes);
     			const swipeitem1_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem1_changes.$$scope = { dirty, ctx };
     			}
 
     			swipeitem1.$set(swipeitem1_changes);
     			const swipeitem2_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem2_changes.$$scope = { dirty, ctx };
     			}
 
     			swipeitem2.$set(swipeitem2_changes);
     			const swipeitem3_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipeitem3_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2084,7 +2335,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(160:4) <Swipe>",
+    		source: "(183:4) <Swipe>",
     		ctx
     	});
 
@@ -2092,7 +2343,7 @@ var app = (function () {
     }
 
     function create_fragment$2(ctx) {
-    	let div18;
+    	let div21;
     	let div1;
     	let div0;
     	let h1;
@@ -2116,47 +2367,56 @@ var app = (function () {
     	let div6;
     	let updating_active_item;
     	let t10;
-    	let div12;
-    	let div9;
-    	let input2;
-    	let input2_value_value;
+    	let label2;
     	let t11;
+    	let input2;
     	let t12;
     	let div11;
     	let div10;
-    	let button0;
-    	let t14;
-    	let button1;
-    	let t16;
-    	let hr0;
-    	let t17;
-    	let p1;
-    	let t19;
+    	let div9;
+    	let updating_active_item_1;
+    	let t13;
     	let div15;
+    	let div12;
+    	let input3;
+    	let input3_value_value;
+    	let t14;
+    	let t15;
     	let div14;
     	let div13;
+    	let button0;
+    	let t17;
+    	let button1;
+    	let t19;
+    	let hr0;
     	let t20;
-    	let hr1;
-    	let t21;
-    	let p2;
-    	let t23;
-    	let div16;
-    	let t24;
+    	let p1;
+    	let t22;
+    	let div18;
     	let div17;
+    	let div16;
+    	let t23;
+    	let hr1;
+    	let t24;
+    	let p2;
+    	let t26;
+    	let div19;
+    	let t27;
+    	let div20;
     	let current;
     	let dispose;
 
     	function swipe0_active_item_binding(value) {
-    		/*swipe0_active_item_binding*/ ctx[15].call(null, value);
+    		/*swipe0_active_item_binding*/ ctx[16].call(null, value);
     	}
 
     	let swipe0_props = {
     		showIndicators: /*showIndicators*/ ctx[1],
     		autoplay: /*autoplay*/ ctx[0],
-    		delay: /*delay*/ ctx[5],
-    		transitionDuration: /*transitionDuration*/ ctx[6],
-    		defaultIndex: /*defaultIndex*/ ctx[7],
-    		$$slots: { default: [create_default_slot_7] },
+    		delay: /*delay*/ ctx[6],
+    		transitionDuration: /*transitionDuration*/ ctx[7],
+    		defaultIndex: /*defaultIndex*/ ctx[8],
+    		$$slots: { default: [create_default_slot_9] },
     		$$scope: { ctx }
     	};
 
@@ -2166,10 +2426,32 @@ var app = (function () {
 
     	const swipe0 = new Swipe({ props: swipe0_props, $$inline: true });
     	binding_callbacks.push(() => bind(swipe0, "active_item", swipe0_active_item_binding));
-    	/*swipe0_binding*/ ctx[16](swipe0);
-    	let if_block = /*customThumbnail*/ ctx[3] && create_if_block$1(ctx);
+    	/*swipe0_binding*/ ctx[17](swipe0);
 
-    	const swipe1 = new Swipe({
+    	function swipe1_active_item_binding(value) {
+    		/*swipe1_active_item_binding*/ ctx[19].call(null, value);
+    	}
+
+    	let swipe1_props = {
+    		showIndicators: /*showIndicators*/ ctx[1],
+    		autoplay: /*autoplay*/ ctx[0],
+    		delay: /*delay*/ ctx[6],
+    		transitionDuration: /*transitionDuration*/ ctx[7],
+    		defaultIndex: /*defaultIndex*/ ctx[8],
+    		$$slots: { default: [create_default_slot_7] },
+    		$$scope: { ctx }
+    	};
+
+    	if (/*active_item*/ ctx[2] !== void 0) {
+    		swipe1_props.active_item = /*active_item*/ ctx[2];
+    	}
+
+    	const swipe1 = new Swipe({ props: swipe1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(swipe1, "active_item", swipe1_active_item_binding));
+    	/*swipe1_binding*/ ctx[20](swipe1);
+    	let if_block = /*customThumbnail*/ ctx[4] && create_if_block$1(ctx);
+
+    	const swipe2 = new Swipe({
     			props: {
     				is_vertical: true,
     				$$slots: { default: [create_default_slot_5] },
@@ -2178,7 +2460,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const swipe2 = new Swipe({
+    	const swipe3 = new Swipe({
     			props: {
     				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
@@ -2188,7 +2470,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div18 = element("div");
+    			div21 = element("div");
     			div1 = element("div");
     			div0 = element("div");
     			h1 = element("h1");
@@ -2216,124 +2498,145 @@ var app = (function () {
     			div6 = element("div");
     			create_component(swipe0.$$.fragment);
     			t10 = space();
-    			div12 = element("div");
-    			div9 = element("div");
+    			label2 = element("label");
+    			t11 = text("Change container size without triggering window:resize. \n    ");
     			input2 = element("input");
-    			t11 = space();
-    			if (if_block) if_block.c();
     			t12 = space();
     			div11 = element("div");
     			div10 = element("div");
-    			button0 = element("button");
-    			button0.textContent = "Prev";
-    			t14 = space();
-    			button1 = element("button");
-    			button1.textContent = "Next";
-    			t16 = space();
-    			hr0 = element("hr");
-    			t17 = space();
-    			p1 = element("p");
-    			p1.textContent = "Vertical Swipe 🔥";
-    			t19 = space();
+    			div9 = element("div");
+    			create_component(swipe1.$$.fragment);
+    			t13 = space();
     			div15 = element("div");
+    			div12 = element("div");
+    			input3 = element("input");
+    			t14 = space();
+    			if (if_block) if_block.c();
+    			t15 = space();
     			div14 = element("div");
     			div13 = element("div");
-    			create_component(swipe1.$$.fragment);
+    			button0 = element("button");
+    			button0.textContent = "Prev";
+    			t17 = space();
+    			button1 = element("button");
+    			button1.textContent = "Next";
+    			t19 = space();
+    			hr0 = element("hr");
     			t20 = space();
-    			hr1 = element("hr");
-    			t21 = space();
-    			p2 = element("p");
-    			p2.textContent = "Also allow pointer events inside Swipe Item";
-    			t23 = space();
+    			p1 = element("p");
+    			p1.textContent = "Vertical Swipe 🔥";
+    			t22 = space();
+    			div18 = element("div");
+    			div17 = element("div");
     			div16 = element("div");
     			create_component(swipe2.$$.fragment);
+    			t23 = space();
+    			hr1 = element("hr");
     			t24 = space();
-    			div17 = element("div");
-    			attr_dev(h1, "class", "text-muted svelte-vzf4ra");
-    			add_location(h1, file$2, 86, 6, 1344);
-    			attr_dev(p0, "class", "text-muted svelte-vzf4ra");
-    			add_location(p0, file$2, 87, 6, 1391);
-    			attr_dev(div0, "class", "col svelte-vzf4ra");
-    			add_location(div0, file$2, 85, 4, 1320);
-    			attr_dev(div1, "class", "row svelte-vzf4ra");
+    			p2 = element("p");
+    			p2.textContent = "Also allow pointer events inside Swipe Item";
+    			t26 = space();
+    			div19 = element("div");
+    			create_component(swipe3.$$.fragment);
+    			t27 = space();
+    			div20 = element("div");
+    			attr_dev(h1, "class", "text-muted svelte-1k65fh9");
+    			add_location(h1, file$2, 90, 6, 1398);
+    			attr_dev(p0, "class", "text-muted svelte-1k65fh9");
+    			add_location(p0, file$2, 91, 6, 1445);
+    			attr_dev(div0, "class", "col svelte-1k65fh9");
+    			add_location(div0, file$2, 89, 4, 1374);
+    			attr_dev(div1, "class", "row svelte-1k65fh9");
     			set_style(div1, "margin-top", "20px");
-    			add_location(div1, file$2, 84, 2, 1274);
-    			attr_dev(input0, "class", "form-check-input svelte-vzf4ra");
+    			add_location(div1, file$2, 88, 2, 1328);
+    			attr_dev(input0, "class", "form-check-input svelte-1k65fh9");
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file$2, 93, 6, 1588);
-    			attr_dev(label0, "class", "text-muted svelte-vzf4ra");
-    			add_location(label0, file$2, 94, 6, 1674);
-    			attr_dev(div2, "class", "form-check form-check-inline float-right svelte-vzf4ra");
-    			add_location(div2, file$2, 92, 4, 1527);
-    			attr_dev(input1, "class", "form-check-input svelte-vzf4ra");
+    			add_location(input0, file$2, 97, 6, 1642);
+    			attr_dev(label0, "class", "text-muted svelte-1k65fh9");
+    			add_location(label0, file$2, 98, 6, 1728);
+    			attr_dev(div2, "class", "form-check form-check-inline float-right svelte-1k65fh9");
+    			add_location(div2, file$2, 96, 4, 1581);
+    			attr_dev(input1, "class", "form-check-input svelte-1k65fh9");
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file$2, 99, 6, 1820);
-    			attr_dev(label1, "class", "text-muted svelte-vzf4ra");
-    			add_location(label1, file$2, 100, 6, 1907);
-    			attr_dev(div3, "class", "form-check form-check-inline float-right svelte-vzf4ra");
-    			add_location(div3, file$2, 98, 4, 1759);
-    			attr_dev(div4, "class", "col svelte-vzf4ra");
-    			add_location(div4, file$2, 91, 4, 1505);
-    			attr_dev(div5, "class", "row svelte-vzf4ra");
-    			add_location(div5, file$2, 90, 2, 1483);
-    			attr_dev(div6, "class", "swipe-holder svelte-vzf4ra");
-    			add_location(div6, file$2, 108, 6, 2053);
-    			attr_dev(div7, "class", "col svelte-vzf4ra");
-    			add_location(div7, file$2, 107, 4, 2029);
-    			attr_dev(div8, "class", "row svelte-vzf4ra");
-    			add_location(div8, file$2, 106, 2, 2007);
-    			attr_dev(input2, "class", "btn btn-info btn-sm svelte-vzf4ra");
-    			attr_dev(input2, "type", "button");
-    			input2.value = input2_value_value = /*autoplay*/ ctx[0] ? "Stop" : "Play";
-    			add_location(input2, file$2, 121, 6, 2487);
-    			attr_dev(div9, "class", "col svelte-vzf4ra");
-    			add_location(div9, file$2, 120, 4, 2463);
+    			add_location(input1, file$2, 103, 6, 1874);
+    			attr_dev(label1, "class", "text-muted svelte-1k65fh9");
+    			add_location(label1, file$2, 104, 6, 1961);
+    			attr_dev(div3, "class", "form-check form-check-inline float-right svelte-1k65fh9");
+    			add_location(div3, file$2, 102, 4, 1813);
+    			attr_dev(div4, "class", "col svelte-1k65fh9");
+    			add_location(div4, file$2, 95, 4, 1559);
+    			attr_dev(div5, "class", "row svelte-1k65fh9");
+    			add_location(div5, file$2, 94, 2, 1537);
+    			attr_dev(div6, "class", "swipe-holder svelte-1k65fh9");
+    			add_location(div6, file$2, 113, 6, 2121);
+    			attr_dev(div7, "class", "col svelte-1k65fh9");
+    			add_location(div7, file$2, 112, 4, 2097);
+    			attr_dev(div8, "class", "row svelte-1k65fh9");
+    			toggle_class(div8, "resize", /*resize*/ ctx[3]);
+    			add_location(div8, file$2, 111, 2, 2062);
+    			attr_dev(input2, "type", "checkbox");
+    			attr_dev(input2, "class", "svelte-1k65fh9");
+    			add_location(input2, file$2, 126, 4, 2554);
+    			attr_dev(label2, "class", "svelte-1k65fh9");
+    			add_location(label2, file$2, 124, 2, 2485);
+    			attr_dev(div9, "class", "swipe-holder svelte-1k65fh9");
+    			add_location(div9, file$2, 131, 6, 2660);
+    			attr_dev(div10, "class", "col svelte-1k65fh9");
+    			add_location(div10, file$2, 130, 4, 2636);
+    			attr_dev(div11, "class", "row svelte-1k65fh9");
+    			add_location(div11, file$2, 129, 2, 2614);
+    			attr_dev(input3, "class", "btn btn-info btn-sm svelte-1k65fh9");
+    			attr_dev(input3, "type", "button");
+    			input3.value = input3_value_value = /*autoplay*/ ctx[0] ? "Stop" : "Play";
+    			add_location(input3, file$2, 144, 6, 3094);
+    			attr_dev(div12, "class", "col svelte-1k65fh9");
+    			add_location(div12, file$2, 143, 4, 3070);
     			attr_dev(button0, "type", "button");
-    			attr_dev(button0, "class", "btn btn-secondary btn-sm svelte-vzf4ra");
-    			add_location(button0, file$2, 134, 8, 3031);
+    			attr_dev(button0, "class", "btn btn-secondary btn-sm svelte-1k65fh9");
+    			add_location(button0, file$2, 157, 8, 3638);
     			attr_dev(button1, "type", "button");
-    			attr_dev(button1, "class", "btn btn-secondary btn-sm svelte-vzf4ra");
-    			add_location(button1, file$2, 135, 8, 3129);
-    			attr_dev(div10, "class", "btn-group float-right svelte-vzf4ra");
-    			add_location(div10, file$2, 133, 6, 2987);
-    			attr_dev(div11, "class", "col svelte-vzf4ra");
-    			add_location(div11, file$2, 132, 4, 2963);
-    			attr_dev(div12, "class", "row svelte-vzf4ra");
-    			set_style(div12, "margin-top", "10px");
-    			add_location(div12, file$2, 119, 2, 2417);
-    			attr_dev(hr0, "class", "svelte-vzf4ra");
-    			add_location(hr0, file$2, 140, 4, 3257);
-    			attr_dev(p1, "class", "text-muted svelte-vzf4ra");
-    			add_location(p1, file$2, 141, 2, 3264);
-    			attr_dev(div13, "class", "swipe-holder svelte-vzf4ra");
-    			add_location(div13, file$2, 144, 6, 3356);
-    			attr_dev(div14, "class", "col svelte-vzf4ra");
-    			add_location(div14, file$2, 143, 4, 3332);
-    			attr_dev(div15, "class", "row svelte-vzf4ra");
-    			add_location(div15, file$2, 142, 2, 3310);
-    			attr_dev(hr1, "class", "svelte-vzf4ra");
-    			add_location(hr1, file$2, 156, 2, 3630);
-    			attr_dev(p2, "class", "text-muted svelte-vzf4ra");
-    			add_location(p2, file$2, 157, 2, 3637);
-    			attr_dev(div16, "class", "swipe-holder svelte-vzf4ra");
-    			add_location(div16, file$2, 158, 2, 3709);
-    			attr_dev(div17, "class", "row mt-3 svelte-vzf4ra");
-    			add_location(div17, file$2, 186, 2, 4621);
-    			attr_dev(div18, "class", "container svelte-vzf4ra");
-    			add_location(div18, file$2, 82, 0, 1246);
+    			attr_dev(button1, "class", "btn btn-secondary btn-sm svelte-1k65fh9");
+    			add_location(button1, file$2, 158, 8, 3736);
+    			attr_dev(div13, "class", "btn-group float-right svelte-1k65fh9");
+    			add_location(div13, file$2, 156, 6, 3594);
+    			attr_dev(div14, "class", "col svelte-1k65fh9");
+    			add_location(div14, file$2, 155, 4, 3570);
+    			attr_dev(div15, "class", "row svelte-1k65fh9");
+    			set_style(div15, "margin-top", "10px");
+    			add_location(div15, file$2, 142, 2, 3024);
+    			attr_dev(hr0, "class", "svelte-1k65fh9");
+    			add_location(hr0, file$2, 163, 4, 3864);
+    			attr_dev(p1, "class", "text-muted svelte-1k65fh9");
+    			add_location(p1, file$2, 164, 2, 3871);
+    			attr_dev(div16, "class", "swipe-holder svelte-1k65fh9");
+    			add_location(div16, file$2, 167, 6, 3963);
+    			attr_dev(div17, "class", "col svelte-1k65fh9");
+    			add_location(div17, file$2, 166, 4, 3939);
+    			attr_dev(div18, "class", "row svelte-1k65fh9");
+    			add_location(div18, file$2, 165, 2, 3917);
+    			attr_dev(hr1, "class", "svelte-1k65fh9");
+    			add_location(hr1, file$2, 179, 2, 4237);
+    			attr_dev(p2, "class", "text-muted svelte-1k65fh9");
+    			add_location(p2, file$2, 180, 2, 4244);
+    			attr_dev(div19, "class", "swipe-holder svelte-1k65fh9");
+    			add_location(div19, file$2, 181, 2, 4316);
+    			attr_dev(div20, "class", "row mt-3 svelte-1k65fh9");
+    			add_location(div20, file$2, 209, 2, 5228);
+    			attr_dev(div21, "class", "container svelte-1k65fh9");
+    			add_location(div21, file$2, 86, 0, 1300);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, div18, anchor);
-    			append_dev(div18, div1);
+    			insert_dev(target, div21, anchor);
+    			append_dev(div21, div1);
     			append_dev(div1, div0);
     			append_dev(div0, h1);
     			append_dev(div0, t1);
     			append_dev(div0, p0);
-    			append_dev(div18, t3);
-    			append_dev(div18, div5);
+    			append_dev(div21, t3);
+    			append_dev(div21, div5);
     			append_dev(div5, div4);
     			append_dev(div4, div2);
     			append_dev(div2, input0);
@@ -2343,73 +2646,84 @@ var app = (function () {
     			append_dev(div4, t6);
     			append_dev(div4, div3);
     			append_dev(div3, input1);
-    			input1.checked = /*customThumbnail*/ ctx[3];
+    			input1.checked = /*customThumbnail*/ ctx[4];
     			append_dev(div3, t7);
     			append_dev(div3, label1);
-    			append_dev(div18, t9);
-    			append_dev(div18, div8);
+    			append_dev(div21, t9);
+    			append_dev(div21, div8);
     			append_dev(div8, div7);
     			append_dev(div7, div6);
     			mount_component(swipe0, div6, null);
-    			append_dev(div18, t10);
-    			append_dev(div18, div12);
-    			append_dev(div12, div9);
-    			append_dev(div9, input2);
-    			append_dev(div12, t11);
-    			if (if_block) if_block.m(div12, null);
-    			append_dev(div12, t12);
-    			append_dev(div12, div11);
+    			append_dev(div21, t10);
+    			append_dev(div21, label2);
+    			append_dev(label2, t11);
+    			append_dev(label2, input2);
+    			input2.checked = /*resize*/ ctx[3];
+    			append_dev(div21, t12);
+    			append_dev(div21, div11);
     			append_dev(div11, div10);
-    			append_dev(div10, button0);
-    			append_dev(div10, t14);
-    			append_dev(div10, button1);
-    			append_dev(div18, t16);
-    			append_dev(div18, hr0);
-    			append_dev(div18, t17);
-    			append_dev(div18, p1);
-    			append_dev(div18, t19);
-    			append_dev(div18, div15);
+    			append_dev(div10, div9);
+    			mount_component(swipe1, div9, null);
+    			append_dev(div21, t13);
+    			append_dev(div21, div15);
+    			append_dev(div15, div12);
+    			append_dev(div12, input3);
+    			append_dev(div15, t14);
+    			if (if_block) if_block.m(div15, null);
+    			append_dev(div15, t15);
     			append_dev(div15, div14);
     			append_dev(div14, div13);
-    			mount_component(swipe1, div13, null);
-    			append_dev(div18, t20);
-    			append_dev(div18, hr1);
-    			append_dev(div18, t21);
-    			append_dev(div18, p2);
-    			append_dev(div18, t23);
-    			append_dev(div18, div16);
-    			mount_component(swipe2, div16, null);
-    			append_dev(div18, t24);
+    			append_dev(div13, button0);
+    			append_dev(div13, t17);
+    			append_dev(div13, button1);
+    			append_dev(div21, t19);
+    			append_dev(div21, hr0);
+    			append_dev(div21, t20);
+    			append_dev(div21, p1);
+    			append_dev(div21, t22);
+    			append_dev(div21, div18);
     			append_dev(div18, div17);
+    			append_dev(div17, div16);
+    			mount_component(swipe2, div16, null);
+    			append_dev(div21, t23);
+    			append_dev(div21, hr1);
+    			append_dev(div21, t24);
+    			append_dev(div21, p2);
+    			append_dev(div21, t26);
+    			append_dev(div21, div19);
+    			mount_component(swipe3, div19, null);
+    			append_dev(div21, t27);
+    			append_dev(div21, div20);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "change", /*input0_change_handler*/ ctx[13]),
-    				listen_dev(input1, "change", /*input1_change_handler*/ ctx[14]),
-    				listen_dev(input2, "click", /*toggle*/ ctx[8], false, false, false),
-    				listen_dev(button0, "click", /*prevSlide*/ ctx[10], false, false, false),
-    				listen_dev(button1, "click", /*nextSlide*/ ctx[9], false, false, false)
+    				listen_dev(input0, "change", /*input0_change_handler*/ ctx[14]),
+    				listen_dev(input1, "change", /*input1_change_handler*/ ctx[15]),
+    				listen_dev(input2, "change", /*input2_change_handler*/ ctx[18]),
+    				listen_dev(input3, "click", /*toggle*/ ctx[9], false, false, false),
+    				listen_dev(button0, "click", /*prevSlide*/ ctx[11], false, false, false),
+    				listen_dev(button1, "click", /*nextSlide*/ ctx[10], false, false, false)
     			];
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*showIndicators*/ 2) {
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*showIndicators*/ 2) {
     				input0.checked = /*showIndicators*/ ctx[1];
     			}
 
-    			if (dirty & /*customThumbnail*/ 8) {
-    				input1.checked = /*customThumbnail*/ ctx[3];
+    			if (dirty[0] & /*customThumbnail*/ 16) {
+    				input1.checked = /*customThumbnail*/ ctx[4];
     			}
 
     			const swipe0_changes = {};
-    			if (dirty & /*showIndicators*/ 2) swipe0_changes.showIndicators = /*showIndicators*/ ctx[1];
-    			if (dirty & /*autoplay*/ 1) swipe0_changes.autoplay = /*autoplay*/ ctx[0];
+    			if (dirty[0] & /*showIndicators*/ 2) swipe0_changes.showIndicators = /*showIndicators*/ ctx[1];
+    			if (dirty[0] & /*autoplay*/ 1) swipe0_changes.autoplay = /*autoplay*/ ctx[0];
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipe0_changes.$$scope = { dirty, ctx };
     			}
 
-    			if (!updating_active_item && dirty & /*active_item*/ 4) {
+    			if (!updating_active_item && dirty[0] & /*active_item*/ 4) {
     				updating_active_item = true;
     				swipe0_changes.active_item = /*active_item*/ ctx[2];
     				add_flush_callback(() => updating_active_item = false);
@@ -2417,58 +2731,86 @@ var app = (function () {
 
     			swipe0.$set(swipe0_changes);
 
-    			if (!current || dirty & /*autoplay*/ 1 && input2_value_value !== (input2_value_value = /*autoplay*/ ctx[0] ? "Stop" : "Play")) {
-    				prop_dev(input2, "value", input2_value_value);
+    			if (dirty[0] & /*resize*/ 8) {
+    				toggle_class(div8, "resize", /*resize*/ ctx[3]);
     			}
 
-    			if (/*customThumbnail*/ ctx[3]) {
+    			if (dirty[0] & /*resize*/ 8) {
+    				input2.checked = /*resize*/ ctx[3];
+    			}
+
+    			const swipe1_changes = {};
+    			if (dirty[0] & /*showIndicators*/ 2) swipe1_changes.showIndicators = /*showIndicators*/ ctx[1];
+    			if (dirty[0] & /*autoplay*/ 1) swipe1_changes.autoplay = /*autoplay*/ ctx[0];
+
+    			if (dirty[1] & /*$$scope*/ 1) {
+    				swipe1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			if (!updating_active_item_1 && dirty[0] & /*active_item*/ 4) {
+    				updating_active_item_1 = true;
+    				swipe1_changes.active_item = /*active_item*/ ctx[2];
+    				add_flush_callback(() => updating_active_item_1 = false);
+    			}
+
+    			swipe1.$set(swipe1_changes);
+
+    			if (!current || dirty[0] & /*autoplay*/ 1 && input3_value_value !== (input3_value_value = /*autoplay*/ ctx[0] ? "Stop" : "Play")) {
+    				prop_dev(input3, "value", input3_value_value);
+    			}
+
+    			if (/*customThumbnail*/ ctx[4]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
     					if_block = create_if_block$1(ctx);
     					if_block.c();
-    					if_block.m(div12, t12);
+    					if_block.m(div15, t15);
     				}
     			} else if (if_block) {
     				if_block.d(1);
     				if_block = null;
     			}
 
-    			const swipe1_changes = {};
-
-    			if (dirty & /*$$scope*/ 33554432) {
-    				swipe1_changes.$$scope = { dirty, ctx };
-    			}
-
-    			swipe1.$set(swipe1_changes);
     			const swipe2_changes = {};
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				swipe2_changes.$$scope = { dirty, ctx };
     			}
 
     			swipe2.$set(swipe2_changes);
+    			const swipe3_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 1) {
+    				swipe3_changes.$$scope = { dirty, ctx };
+    			}
+
+    			swipe3.$set(swipe3_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(swipe0.$$.fragment, local);
     			transition_in(swipe1.$$.fragment, local);
     			transition_in(swipe2.$$.fragment, local);
+    			transition_in(swipe3.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(swipe0.$$.fragment, local);
     			transition_out(swipe1.$$.fragment, local);
     			transition_out(swipe2.$$.fragment, local);
+    			transition_out(swipe3.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div18);
-    			/*swipe0_binding*/ ctx[16](null);
+    			if (detaching) detach_dev(div21);
+    			/*swipe0_binding*/ ctx[17](null);
     			destroy_component(swipe0);
-    			if (if_block) if_block.d();
+    			/*swipe1_binding*/ ctx[20](null);
     			destroy_component(swipe1);
+    			if (if_block) if_block.d();
     			destroy_component(swipe2);
+    			destroy_component(swipe3);
     			run_all(dispose);
     		}
     	};
@@ -2495,6 +2837,7 @@ var app = (function () {
     	let transitionDuration = 200;
     	let defaultIndex = 0;
     	let active_item = 0; //readonly
+    	let resize = false;
     	let customThumbnail = false;
     	let SwipeComp;
 
@@ -2531,7 +2874,7 @@ var app = (function () {
 
     	function input1_change_handler() {
     		customThumbnail = this.checked;
-    		$$invalidate(3, customThumbnail);
+    		$$invalidate(4, customThumbnail);
     	}
 
     	function swipe0_active_item_binding(value) {
@@ -2541,7 +2884,23 @@ var app = (function () {
 
     	function swipe0_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
-    			$$invalidate(4, SwipeComp = $$value);
+    			$$invalidate(5, SwipeComp = $$value);
+    		});
+    	}
+
+    	function input2_change_handler() {
+    		resize = this.checked;
+    		$$invalidate(3, resize);
+    	}
+
+    	function swipe1_active_item_binding(value) {
+    		active_item = value;
+    		$$invalidate(2, active_item);
+    	}
+
+    	function swipe1_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			$$invalidate(5, SwipeComp = $$value);
     		});
     	}
 
@@ -2556,6 +2915,7 @@ var app = (function () {
     		transitionDuration,
     		defaultIndex,
     		active_item,
+    		resize,
     		customThumbnail,
     		SwipeComp,
     		toggle,
@@ -2568,14 +2928,15 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("autoplay" in $$props) $$invalidate(0, autoplay = $$props.autoplay);
-    		if ("delay" in $$props) $$invalidate(5, delay = $$props.delay);
+    		if ("delay" in $$props) $$invalidate(6, delay = $$props.delay);
     		if ("showIndicators" in $$props) $$invalidate(1, showIndicators = $$props.showIndicators);
-    		if ("transitionDuration" in $$props) $$invalidate(6, transitionDuration = $$props.transitionDuration);
-    		if ("defaultIndex" in $$props) $$invalidate(7, defaultIndex = $$props.defaultIndex);
+    		if ("transitionDuration" in $$props) $$invalidate(7, transitionDuration = $$props.transitionDuration);
+    		if ("defaultIndex" in $$props) $$invalidate(8, defaultIndex = $$props.defaultIndex);
     		if ("active_item" in $$props) $$invalidate(2, active_item = $$props.active_item);
-    		if ("customThumbnail" in $$props) $$invalidate(3, customThumbnail = $$props.customThumbnail);
-    		if ("SwipeComp" in $$props) $$invalidate(4, SwipeComp = $$props.SwipeComp);
-    		if ("images" in $$props) $$invalidate(12, images = $$props.images);
+    		if ("resize" in $$props) $$invalidate(3, resize = $$props.resize);
+    		if ("customThumbnail" in $$props) $$invalidate(4, customThumbnail = $$props.customThumbnail);
+    		if ("SwipeComp" in $$props) $$invalidate(5, SwipeComp = $$props.SwipeComp);
+    		if ("images" in $$props) $$invalidate(13, images = $$props.images);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2586,6 +2947,7 @@ var app = (function () {
     		autoplay,
     		showIndicators,
     		active_item,
+    		resize,
     		customThumbnail,
     		SwipeComp,
     		delay,
@@ -2600,6 +2962,9 @@ var app = (function () {
     		input1_change_handler,
     		swipe0_active_item_binding,
     		swipe0_binding,
+    		input2_change_handler,
+    		swipe1_active_item_binding,
+    		swipe1_binding,
     		click_handler
     	];
     }
@@ -2607,7 +2972,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
